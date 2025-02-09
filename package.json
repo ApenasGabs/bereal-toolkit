@@ -7,10 +7,14 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:electron": "electron-builder --mac --win --linux",
+    "release:electron": "electron-builder --publish always"
   },
   "dependencies": {
     "@fontsource/inter": "^5.1.1",
+    "electron": "^34.1.1",
+    "electron-builder": "^25.1.8",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
