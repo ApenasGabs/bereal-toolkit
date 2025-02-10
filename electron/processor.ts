@@ -5,7 +5,7 @@ import sharp from "sharp";
 
 const exiftool = new ExifTool();
 
-export async function processFiles(folderPath: string) {
+const processFiles = async (folderPath: string) => {
   const files = fs.readdirSync(folderPath);
   //REVIEW - Revisar as tipagens
   type Result =
@@ -37,7 +37,7 @@ export async function processFiles(folderPath: string) {
       } catch (error) {
         results.push({
           original: file,
-          error: error.message,
+          error: (error as Error).message,
           status: "failed",
         });
       }
@@ -46,4 +46,5 @@ export async function processFiles(folderPath: string) {
 
   await exiftool.end();
   return results;
-}
+};
+export default processFiles;

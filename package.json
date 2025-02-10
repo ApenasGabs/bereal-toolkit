@@ -3,6 +3,7 @@
   "version": "v0.0.1",
   "private": true,
   "main": "electron/main.ts",
+  "type": "module",
   "scripts": {
     "dev": "concurrently \"npm run dev:web\" \"npm run dev:electron\"",
     "dev:web": "vite",
