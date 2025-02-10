@@ -1,12 +1,16 @@
-import { dialog, ipcMain } from "electron";
-import processFiles from "./processor";
+const electron = require("electron");
+const { IpcMainInvokeEvent } = require("electron");
+const processFiles = require("./processor.ts");
+const { dialog, ipcMain } = electron;
+
+interface ProcessFilesResponse {}
 
 ipcMain.handle(
   "process:files",
   async (
-    _event: Electron.IpcMainInvokeEvent,
+    _event: typeof IpcMainInvokeEvent,
     folderPath: string
-  ): Promise<any> => {
+  ): Promise<ProcessFilesResponse> => {
     return await processFiles(folderPath);
   }
 );
