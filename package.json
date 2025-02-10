@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "concurrently \"pnpm --filter app dev\" \"pnpm --filter electron-core dev\"",
     "dev:web": "vite",
-    "dev:electron": "tsx packages/electron-core/src/main.ts",
+    "dev:electron": "ts-node packages/electron-core/src/main.ts",
     "build": "vite build && electron-builder",
     "start": "electron .",
     "electron:serve": "vite build && electron ."
@@ -31,8 +31,5 @@
     "vite": "^4.0.0",
     "vite-plugin-electron": "^0.11.0"
   },
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ]
+  "private": true
 }
