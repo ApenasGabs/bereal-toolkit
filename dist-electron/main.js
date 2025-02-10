@@ -1,1 +1,0 @@
-"use strict";const{dialog:i,ipcMain:r}=require("electron"),{processFiles:n}=require("./processor");r.handle("process:files",async(e,s)=>await n(s));r.handle("dialog:selectFolder",async()=>{const e=await i.showOpenDialog({properties:["openDirectory"]});return e.canceled?null:e.filePaths[0]});

@@ -1,29 +1,47 @@
-# .github/workflows/build.yml
-name: Build Electron
+name: Build
 
 on:
   push:
-    tags: v*
+    branches: [main]
+    paths-ignore:
+      - "**.md"
+      - "**.spec.js"
+      - ".idea"
+      - ".vscode"
+      - ".dockerignore"
+      - "Dockerfile"
+      - ".gitignore"
+      - ".github/**"
+      - "!.github/workflows/build.yml"
 
 jobs:
   build:
     runs-on: ${{ matrix.os }}
+
     strategy:
       matrix:
-        os: [macos-latest, windows-latest, ubuntu-latest]
+        os: [macos-latest, ubuntu-latest, windows-latest]
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-      - name: Build Electron
-        run: npm run build:electron
+      - name: Install Dependencies
+        run: npm install
 
-      - name: Upload Artifacts
+      - name: Build Release Files
+        run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: bereal-toolkit-${{ matrix.os }}
-          path: dist/
+          name: release_on_${{ matrix. os }}
+          path: release/
+          retention-days: 5
