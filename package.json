@@ -14,6 +14,7 @@
   "dependencies": {
     "exiftool-vendored": "^29.1.0",
     "react": "^18.2.0",
+    "@fontsource/inter": "^5.1.1",
     "react-dom": "^18.2.0",
     "sharp": "^0.33.5"
   },
