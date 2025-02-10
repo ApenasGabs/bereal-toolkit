@@ -1,1 +1,0 @@
-"use strict";const n=require("electron");require("electron");const t=require("./processor.ts"),{dialog:i,ipcMain:r}=n;r.handle("process:files",async(e,s)=>await t(s));r.handle("dialog:selectFolder",async()=>{const e=await i.showOpenDialog({properties:["openDirectory"]});return e.canceled?null:e.filePaths[0]});
