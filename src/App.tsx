@@ -3,6 +3,15 @@ import "./App.css";
 import ComingSoon from "./components/ComingSoon";
 import DownloadElectron from "./components/DownloadElectron";
 
+declare global {
+  interface Window {
+    electronAPI?: {
+      selectFolder: () => Promise<string>;
+      processFiles: (folder: string) => Promise<any>;
+    };
+  }
+}
+
 function App() {
   const [activeTab, setActiveTab] = useState<"web" | "desktop">("web");
   const handleProcess = async () => {

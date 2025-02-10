@@ -22,3 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Electron / Build
+build
+out
+release
+*.bak
+*.env
+dist-electron/*
+
+# Coverage
+coverage

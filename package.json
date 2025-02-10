@@ -4,7 +4,9 @@
   "private": true,
   "main": "electron/main.ts",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently \"npm run dev:web\" \"npm run dev:electron\"",
+    "dev:web": "vite",
+    "dev:electron": "electron -r ts-node/register ./electron/main.ts",
     "build": "vite build && electron-builder",
     "start": "electron .",
     "electron:serve": "vite build && electron ."
@@ -14,12 +16,15 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
     "electron": "^25.0.0",
     "electron-builder": "^24.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3",
     "vite": "^4.0.0",
-    "vite-plugin-electron": "^0.11.0",
-    "typescript": "^5.0.0",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0"
+    "vite-plugin-electron": "^0.11.0"
   }
 }
