@@ -1,8 +1,6 @@
-import { IpcMainInvokeEvent } from "electron";
+import { dialog, ipcMain, IpcMainInvokeEvent } from "electron";
 import processFiles from "../processor";
 import ProcessFilesResponse from "../types";
-
-const { dialog, ipcMain } = Electron;
 
 ipcMain.handle(
   "process:files",
