@@ -1,4 +1,4 @@
-export default function DownloadElectron() {
+const DownloadElectron = () => {
   const releasesUrl = "https://github.com/apenasgabs/bereal-toolkit/releases";
 
   return (
@@ -37,4 +37,5 @@ export default function DownloadElectron() {
       </div>
     </div>
   );
-}
+};
+export default DownloadElectron;

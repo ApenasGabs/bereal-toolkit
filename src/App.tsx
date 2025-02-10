@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
-import ComingSoon from "./components/ComingSoon";
-import DownloadElectron from "./components/DownloadElectron";
+import ComingSoon from "./components/ComingSoon/ComingSoon";
+import DownloadElectron from "./components/DownloadElectron/DownloadElectron";
 
 declare global {
   interface Window {
