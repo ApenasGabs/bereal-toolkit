@@ -1,9 +1,9 @@
+import ProcessFilesResponse from "./types";
+
 const electron = require("electron");
 const { IpcMainInvokeEvent } = require("electron");
 const processFiles = require("./processor.ts");
 const { dialog, ipcMain } = electron;
-
-interface ProcessFilesResponse {}
 
 ipcMain.handle(
   "process:files",

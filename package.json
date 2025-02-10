@@ -1,13 +1,12 @@
 {
   "name": "bereal-toolkit",
   "version": "v0.0.1",
-  "private": true,
-  "main": "electron/main.mts",
-  "type": "module",
+  "description": "",
+  "main": "packages/electron-core/src/main.ts",
   "scripts": {
-    "dev": "concurrently \"npm run dev:web\" \"npm run dev:electron\"",
+    "dev": "concurrently \"pnpm --filter app dev\" \"pnpm --filter electron-core dev\"",
     "dev:web": "vite",
-    "dev:electron": "tsx electron/main.mts",
+    "dev:electron": "tsx packages/electron-core/src/main.ts",
     "build": "vite build && electron-builder",
     "start": "electron .",
     "electron:serve": "vite build && electron ."
@@ -31,5 +30,9 @@
     "typescript": "^5.7.3",
     "vite": "^4.0.0",
     "vite-plugin-electron": "^0.11.0"
-  }
+  },
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
 }

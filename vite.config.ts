@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [
     react(),
     electron({
-      entry: "electron/main.mts",
+      entry: "packages/electron-core/src/main.ts",
     }),
   ],
   build: {
